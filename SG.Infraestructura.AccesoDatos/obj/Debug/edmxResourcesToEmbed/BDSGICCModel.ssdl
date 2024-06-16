@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="depositoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="categories">
+    <Key>
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="category_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="category_state" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="credit">
+    <Key>
+      <PropertyRef Name="credit_id" />
+    </Key>
+    <Property Name="credit_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customer_id" Type="int" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="customer_notes" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="credit_status" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="credit_state" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="credits_details">
+    <Key>
+      <PropertyRef Name="credit_detail_id" />
+    </Key>
+    <Property Name="credit_detail_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="credit_id" Type="int" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="week_id" Type="int" />
+    <Property Name="credit_detail_description" Type="text" Nullable="false" />
+    <Property Name="credit_detail_value" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customer_first_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="customer_last_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="customer_state" Type="bit" Nullable="false" />
+    <Property Name="customer_address" Type="varchar" MaxLength="150" />
+    <Property Name="customer_ci" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="customer_phone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="customer_email" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="products">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_id" Type="int" />
+    <Property Name="product_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="product_sale_price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="product_purchase_price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="product_img" Type="text" Nullable="false" />
+    <Property Name="product_stock_quantity" Type="int" />
+    <Property Name="product_state" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="rol_id" />
+    </Key>
+    <Property Name="rol_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rol_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="rol_state" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="stock_adjusts">
+    <Key>
+      <PropertyRef Name="stock_adjust_id" />
+    </Key>
+    <Property Name="stock_adjust_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="stock_adjust_date" Type="datetime" Nullable="false" />
+    <Property Name="stock_adjust_quantity" Type="int" />
+    <Property Name="stock_adjust_reason" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="stock_moves">
+    <Key>
+      <PropertyRef Name="stock_move_id" />
+    </Key>
+    <Property Name="stock_move_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="transfer_id" Type="int" />
+    <Property Name="stock_move_quantity" Type="int" />
+    <Property Name="stock_move_price_unit" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="transfer_types">
+    <Key>
+      <PropertyRef Name="transfer_type_id" />
+    </Key>
+    <Property Name="transfer_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TRANSFER_TYPE_NAME" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TRANSFER_TYPE_DESCRIPTION" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="TRANSFER_TYPE_STATE" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="transfers">
+    <Key>
+      <PropertyRef Name="transfer_id" />
+    </Key>
+    <Property Name="transfer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="transfer_type_id" Type="int" />
+    <Property Name="transfer_number" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="transfer_date" Type="datetime" Nullable="false" />
+    <Property Name="transfer_created" Type="datetime" Nullable="false" />
+    <Property Name="transfer_invoice_number" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rol_id" Type="int" />
+    <Property Name="user_name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="user_email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="user_state" Type="bit" Nullable="false" />
+    <Property Name="user_password" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CREDIT_FK_CREDIT_CUSTOMER">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="credit" Type="Self.credit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="credit">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CREDIT_FK_USERS_USERS">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="credit" Type="Self.credit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="credit">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CREDITS_FK_CREDIT_CREDIT">
+    <End Role="credit" Type="Self.credit" Multiplicity="0..1" />
+    <End Role="credits_details" Type="Self.credits_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="credit">
+        <PropertyRef Name="credit_id" />
+      </Principal>
+      <Dependent Role="credits_details">
+        <PropertyRef Name="credit_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CREDITS_FK_CREDIT_PRODUCTS">
+    <End Role="products" Type="Self.products" Multiplicity="0..1" />
+    <End Role="credits_details" Type="Self.credits_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="credits_details">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUCTS_FK_PRODU_CATEGORI">
+    <End Role="categories" Type="Self.categories" Multiplicity="0..1" />
+    <End Role="products" Type="Self.products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="category_id" />
+      </Principal>
+      <Dependent Role="products">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STOCK_AD_FK_STOCK_PRODUCTS">
+    <End Role="products" Type="Self.products" Multiplicity="0..1" />
+    <End Role="stock_adjusts" Type="Self.stock_adjusts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="stock_adjusts">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STOCK_MO_FK_STOCK_TRANSFER">
+    <End Role="transfers" Type="Self.transfers" Multiplicity="0..1" />
+    <End Role="stock_moves" Type="Self.stock_moves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transfers">
+        <PropertyRef Name="transfer_id" />
+      </Principal>
+      <Dependent Role="stock_moves">
+        <PropertyRef Name="transfer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STOCK_MO_RELATIONS_PRODUCTS">
+    <End Role="products" Type="Self.products" Multiplicity="0..1" />
+    <End Role="stock_moves" Type="Self.stock_moves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="stock_moves">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRANSFER_FK_TRANS_TRANSFER">
+    <End Role="transfer_types" Type="Self.transfer_types" Multiplicity="0..1" />
+    <End Role="transfers" Type="Self.transfers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transfer_types">
+        <PropertyRef Name="transfer_type_id" />
+      </Principal>
+      <Dependent Role="transfers">
+        <PropertyRef Name="transfer_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USERS_FK_USER_ROLES">
+    <End Role="roles" Type="Self.roles" Multiplicity="0..1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="rol_id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="rol_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="depositoModelStoreContainer">
+    <EntitySet Name="categories" EntityType="Self.categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="credit" EntityType="Self.credit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="credits_details" EntityType="Self.credits_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="stock_adjusts" EntityType="Self.stock_adjusts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="stock_moves" EntityType="Self.stock_moves" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="transfer_types" EntityType="Self.transfer_types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="transfers" EntityType="Self.transfers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CREDIT_FK_CREDIT_CUSTOMER" Association="Self.FK_CREDIT_FK_CREDIT_CUSTOMER">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="credit" EntitySet="credit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CREDIT_FK_USERS_USERS" Association="Self.FK_CREDIT_FK_USERS_USERS">
+      <End Role="users" EntitySet="users" />
+      <End Role="credit" EntitySet="credit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CREDITS_FK_CREDIT_CREDIT" Association="Self.FK_CREDITS_FK_CREDIT_CREDIT">
+      <End Role="credit" EntitySet="credit" />
+      <End Role="credits_details" EntitySet="credits_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CREDITS_FK_CREDIT_PRODUCTS" Association="Self.FK_CREDITS_FK_CREDIT_PRODUCTS">
+      <End Role="products" EntitySet="products" />
+      <End Role="credits_details" EntitySet="credits_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUCTS_FK_PRODU_CATEGORI" Association="Self.FK_PRODUCTS_FK_PRODU_CATEGORI">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="products" EntitySet="products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STOCK_AD_FK_STOCK_PRODUCTS" Association="Self.FK_STOCK_AD_FK_STOCK_PRODUCTS">
+      <End Role="products" EntitySet="products" />
+      <End Role="stock_adjusts" EntitySet="stock_adjusts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STOCK_MO_FK_STOCK_TRANSFER" Association="Self.FK_STOCK_MO_FK_STOCK_TRANSFER">
+      <End Role="transfers" EntitySet="transfers" />
+      <End Role="stock_moves" EntitySet="stock_moves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STOCK_MO_RELATIONS_PRODUCTS" Association="Self.FK_STOCK_MO_RELATIONS_PRODUCTS">
+      <End Role="products" EntitySet="products" />
+      <End Role="stock_moves" EntitySet="stock_moves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRANSFER_FK_TRANS_TRANSFER" Association="Self.FK_TRANSFER_FK_TRANS_TRANSFER">
+      <End Role="transfer_types" EntitySet="transfer_types" />
+      <End Role="transfers" EntitySet="transfers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USERS_FK_USER_ROLES" Association="Self.FK_USERS_FK_USER_ROLES">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

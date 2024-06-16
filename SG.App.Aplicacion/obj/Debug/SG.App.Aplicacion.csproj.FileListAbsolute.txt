@@ -1,0 +1,16 @@
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.App.Aplicacion\bin\Debug\SG.App.Aplicacion.dll
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.App.Aplicacion\bin\Debug\SG.App.Aplicacion.pdb
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.App.Aplicacion\bin\Debug\SG.Dominio.Modelo.dll
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.App.Aplicacion\bin\Debug\SG.Dominio.Servicios.dll
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.App.Aplicacion\bin\Debug\SG.Infraestructura.AccesoDatos.dll
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.App.Aplicacion\bin\Debug\EntityFramework.dll
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.App.Aplicacion\bin\Debug\SG.Dominio.Modelo.pdb
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.App.Aplicacion\bin\Debug\SG.Dominio.Servicios.pdb
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.App.Aplicacion\bin\Debug\SG.Infraestructura.AccesoDatos.pdb
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.App.Aplicacion\bin\Debug\SG.Infraestructura.AccesoDatos.dll.config
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.App.Aplicacion\bin\Debug\EntityFramework.xml
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.App.Aplicacion\obj\Debug\SG.App.Aplicacion.csproj.AssemblyReference.cache
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.App.Aplicacion\obj\Debug\SG.App.Aplicacion.csproj.CoreCompileInputs.cache
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.App.Aplicacion\obj\Debug\SG.App.A.E9CAD584.Up2Date
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.App.Aplicacion\obj\Debug\SG.App.Aplicacion.dll
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.App.Aplicacion\obj\Debug\SG.App.Aplicacion.pdb

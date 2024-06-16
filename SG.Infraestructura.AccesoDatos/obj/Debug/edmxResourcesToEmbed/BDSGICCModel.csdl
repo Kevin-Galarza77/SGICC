@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="depositoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="categories">
+    <Key>
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="category_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="category_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="category_state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="products" Relationship="Self.FK_PRODUCTS_FK_PRODU_CATEGORI" FromRole="categories" ToRole="products" />
+  </EntityType>
+  <EntityType Name="credit">
+    <Key>
+      <PropertyRef Name="credit_id" />
+    </Key>
+    <Property Name="credit_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer_id" Type="Int32" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="customer_notes" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="credit_status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="credit_state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="customer" Relationship="Self.FK_CREDIT_FK_CREDIT_CUSTOMER" FromRole="credit" ToRole="customer" />
+    <NavigationProperty Name="users" Relationship="Self.FK_CREDIT_FK_USERS_USERS" FromRole="credit" ToRole="users" />
+    <NavigationProperty Name="credits_details" Relationship="Self.FK_CREDITS_FK_CREDIT_CREDIT" FromRole="credit" ToRole="credits_details" />
+  </EntityType>
+  <EntityType Name="credits_details">
+    <Key>
+      <PropertyRef Name="credit_detail_id" />
+    </Key>
+    <Property Name="credit_detail_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="credit_id" Type="Int32" />
+    <Property Name="product_id" Type="Int32" />
+    <Property Name="week_id" Type="Int32" />
+    <Property Name="credit_detail_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="credit_detail_value" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="credit" Relationship="Self.FK_CREDITS_FK_CREDIT_CREDIT" FromRole="credits_details" ToRole="credit" />
+    <NavigationProperty Name="products" Relationship="Self.FK_CREDITS_FK_CREDIT_PRODUCTS" FromRole="credits_details" ToRole="products" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer_first_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="customer_last_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="customer_state" Type="Boolean" Nullable="false" />
+    <Property Name="customer_address" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="customer_ci" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="customer_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="customer_email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="credit" Relationship="Self.FK_CREDIT_FK_CREDIT_CUSTOMER" FromRole="customer" ToRole="credit" />
+  </EntityType>
+  <EntityType Name="products">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="category_id" Type="Int32" />
+    <Property Name="product_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="product_sale_price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="product_purchase_price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="product_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="product_stock_quantity" Type="Int32" />
+    <Property Name="product_state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="categories" Relationship="Self.FK_PRODUCTS_FK_PRODU_CATEGORI" FromRole="products" ToRole="categories" />
+    <NavigationProperty Name="credits_details" Relationship="Self.FK_CREDITS_FK_CREDIT_PRODUCTS" FromRole="products" ToRole="credits_details" />
+    <NavigationProperty Name="stock_adjusts" Relationship="Self.FK_STOCK_AD_FK_STOCK_PRODUCTS" FromRole="products" ToRole="stock_adjusts" />
+    <NavigationProperty Name="stock_moves" Relationship="Self.FK_STOCK_MO_RELATIONS_PRODUCTS" FromRole="products" ToRole="stock_moves" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="rol_id" />
+    </Key>
+    <Property Name="rol_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rol_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rol_state" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="users" Relationship="Self.FK_USERS_FK_USER_ROLES" FromRole="roles" ToRole="users" />
+  </EntityType>
+  <EntityType Name="stock_adjusts">
+    <Key>
+      <PropertyRef Name="stock_adjust_id" />
+    </Key>
+    <Property Name="stock_adjust_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_id" Type="Int32" />
+    <Property Name="stock_adjust_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="stock_adjust_quantity" Type="Int32" />
+    <Property Name="stock_adjust_reason" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="products" Relationship="Self.FK_STOCK_AD_FK_STOCK_PRODUCTS" FromRole="stock_adjusts" ToRole="products" />
+  </EntityType>
+  <EntityType Name="stock_moves">
+    <Key>
+      <PropertyRef Name="stock_move_id" />
+    </Key>
+    <Property Name="stock_move_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_id" Type="Int32" />
+    <Property Name="transfer_id" Type="Int32" />
+    <Property Name="stock_move_quantity" Type="Int32" />
+    <Property Name="stock_move_price_unit" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="products" Relationship="Self.FK_STOCK_MO_RELATIONS_PRODUCTS" FromRole="stock_moves" ToRole="products" />
+    <NavigationProperty Name="transfers" Relationship="Self.FK_STOCK_MO_FK_STOCK_TRANSFER" FromRole="stock_moves" ToRole="transfers" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="transfer_types">
+    <Key>
+      <PropertyRef Name="transfer_type_id" />
+    </Key>
+    <Property Name="transfer_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TRANSFER_TYPE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TRANSFER_TYPE_DESCRIPTION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TRANSFER_TYPE_STATE" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="transfers" Relationship="Self.FK_TRANSFER_FK_TRANS_TRANSFER" FromRole="transfer_types" ToRole="transfers" />
+  </EntityType>
+  <EntityType Name="transfers">
+    <Key>
+      <PropertyRef Name="transfer_id" />
+    </Key>
+    <Property Name="transfer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="transfer_type_id" Type="Int32" />
+    <Property Name="transfer_number" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="transfer_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="transfer_created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="transfer_invoice_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="stock_moves" Relationship="Self.FK_STOCK_MO_FK_STOCK_TRANSFER" FromRole="transfers" ToRole="stock_moves" />
+    <NavigationProperty Name="transfer_types" Relationship="Self.FK_TRANSFER_FK_TRANS_TRANSFER" FromRole="transfers" ToRole="transfer_types" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rol_id" Type="Int32" />
+    <Property Name="user_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_state" Type="Boolean" Nullable="false" />
+    <Property Name="user_password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="credit" Relationship="Self.FK_CREDIT_FK_USERS_USERS" FromRole="users" ToRole="credit" />
+    <NavigationProperty Name="roles" Relationship="Self.FK_USERS_FK_USER_ROLES" FromRole="users" ToRole="roles" />
+  </EntityType>
+  <Association Name="FK_PRODUCTS_FK_PRODU_CATEGORI">
+    <End Role="categories" Type="Self.categories" Multiplicity="0..1" />
+    <End Role="products" Type="Self.products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="category_id" />
+      </Principal>
+      <Dependent Role="products">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CREDIT_FK_CREDIT_CUSTOMER">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="credit" Type="Self.credit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="credit">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CREDIT_FK_USERS_USERS">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="credit" Type="Self.credit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="credit">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CREDITS_FK_CREDIT_CREDIT">
+    <End Role="credit" Type="Self.credit" Multiplicity="0..1" />
+    <End Role="credits_details" Type="Self.credits_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="credit">
+        <PropertyRef Name="credit_id" />
+      </Principal>
+      <Dependent Role="credits_details">
+        <PropertyRef Name="credit_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CREDITS_FK_CREDIT_PRODUCTS">
+    <End Role="products" Type="Self.products" Multiplicity="0..1" />
+    <End Role="credits_details" Type="Self.credits_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="credits_details">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STOCK_AD_FK_STOCK_PRODUCTS">
+    <End Role="products" Type="Self.products" Multiplicity="0..1" />
+    <End Role="stock_adjusts" Type="Self.stock_adjusts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="stock_adjusts">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STOCK_MO_RELATIONS_PRODUCTS">
+    <End Role="products" Type="Self.products" Multiplicity="0..1" />
+    <End Role="stock_moves" Type="Self.stock_moves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="stock_moves">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USERS_FK_USER_ROLES">
+    <End Role="roles" Type="Self.roles" Multiplicity="0..1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="rol_id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="rol_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STOCK_MO_FK_STOCK_TRANSFER">
+    <End Role="transfers" Type="Self.transfers" Multiplicity="0..1" />
+    <End Role="stock_moves" Type="Self.stock_moves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transfers">
+        <PropertyRef Name="transfer_id" />
+      </Principal>
+      <Dependent Role="stock_moves">
+        <PropertyRef Name="transfer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRANSFER_FK_TRANS_TRANSFER">
+    <End Role="transfer_types" Type="Self.transfer_types" Multiplicity="0..1" />
+    <End Role="transfers" Type="Self.transfers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transfer_types">
+        <PropertyRef Name="transfer_type_id" />
+      </Principal>
+      <Dependent Role="transfers">
+        <PropertyRef Name="transfer_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="depositoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="categories" EntityType="Self.categories" />
+    <EntitySet Name="credit" EntityType="Self.credit" />
+    <EntitySet Name="credits_details" EntityType="Self.credits_details" />
+    <EntitySet Name="customer" EntityType="Self.customer" />
+    <EntitySet Name="products" EntityType="Self.products" />
+    <EntitySet Name="roles" EntityType="Self.roles" />
+    <EntitySet Name="stock_adjusts" EntityType="Self.stock_adjusts" />
+    <EntitySet Name="stock_moves" EntityType="Self.stock_moves" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="transfer_types" EntityType="Self.transfer_types" />
+    <EntitySet Name="transfers" EntityType="Self.transfers" />
+    <EntitySet Name="users" EntityType="Self.users" />
+    <AssociationSet Name="FK_PRODUCTS_FK_PRODU_CATEGORI" Association="Self.FK_PRODUCTS_FK_PRODU_CATEGORI">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="products" EntitySet="products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CREDIT_FK_CREDIT_CUSTOMER" Association="Self.FK_CREDIT_FK_CREDIT_CUSTOMER">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="credit" EntitySet="credit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CREDIT_FK_USERS_USERS" Association="Self.FK_CREDIT_FK_USERS_USERS">
+      <End Role="users" EntitySet="users" />
+      <End Role="credit" EntitySet="credit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CREDITS_FK_CREDIT_CREDIT" Association="Self.FK_CREDITS_FK_CREDIT_CREDIT">
+      <End Role="credit" EntitySet="credit" />
+      <End Role="credits_details" EntitySet="credits_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CREDITS_FK_CREDIT_PRODUCTS" Association="Self.FK_CREDITS_FK_CREDIT_PRODUCTS">
+      <End Role="products" EntitySet="products" />
+      <End Role="credits_details" EntitySet="credits_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STOCK_AD_FK_STOCK_PRODUCTS" Association="Self.FK_STOCK_AD_FK_STOCK_PRODUCTS">
+      <End Role="products" EntitySet="products" />
+      <End Role="stock_adjusts" EntitySet="stock_adjusts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STOCK_MO_RELATIONS_PRODUCTS" Association="Self.FK_STOCK_MO_RELATIONS_PRODUCTS">
+      <End Role="products" EntitySet="products" />
+      <End Role="stock_moves" EntitySet="stock_moves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USERS_FK_USER_ROLES" Association="Self.FK_USERS_FK_USER_ROLES">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STOCK_MO_FK_STOCK_TRANSFER" Association="Self.FK_STOCK_MO_FK_STOCK_TRANSFER">
+      <End Role="transfers" EntitySet="transfers" />
+      <End Role="stock_moves" EntitySet="stock_moves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRANSFER_FK_TRANS_TRANSFER" Association="Self.FK_TRANSFER_FK_TRANS_TRANSFER">
+      <End Role="transfer_types" EntitySet="transfer_types" />
+      <End Role="transfers" EntitySet="transfers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

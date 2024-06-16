@@ -1,0 +1,6 @@
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Dominio.Servicios\bin\Debug\SG.Dominio.Servicios.dll
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Dominio.Servicios\bin\Debug\SG.Dominio.Servicios.pdb
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Dominio.Servicios\obj\Debug\SG.Dominio.Servicios.csproj.AssemblyReference.cache
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Dominio.Servicios\obj\Debug\SG.Dominio.Servicios.csproj.CoreCompileInputs.cache
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Dominio.Servicios\obj\Debug\SG.Dominio.Servicios.dll
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Dominio.Servicios\obj\Debug\SG.Dominio.Servicios.pdb

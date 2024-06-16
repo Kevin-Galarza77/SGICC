@@ -1,0 +1,16 @@
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Infraestructura.AccesoDatos\bin\Debug\SG.Infraestructura.AccesoDatos.dll.config
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Infraestructura.AccesoDatos\bin\Debug\SG.Infraestructura.AccesoDatos.dll
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Infraestructura.AccesoDatos\bin\Debug\SG.Infraestructura.AccesoDatos.pdb
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Infraestructura.AccesoDatos\bin\Debug\EntityFramework.dll
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Infraestructura.AccesoDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Infraestructura.AccesoDatos\bin\Debug\SG.Dominio.Modelo.dll
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Infraestructura.AccesoDatos\bin\Debug\SG.Dominio.Servicios.dll
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Infraestructura.AccesoDatos\bin\Debug\SG.Dominio.Modelo.pdb
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Infraestructura.AccesoDatos\bin\Debug\SG.Dominio.Servicios.pdb
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Infraestructura.AccesoDatos\bin\Debug\EntityFramework.xml
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Infraestructura.AccesoDatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Infraestructura.AccesoDatos\obj\Debug\SG.Infraestructura.AccesoDatos.csproj.AssemblyReference.cache
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Infraestructura.AccesoDatos\obj\Debug\SG.Infraestructura.AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Infraestructura.AccesoDatos\obj\Debug\SG.Infra.DA54D991.Up2Date
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Infraestructura.AccesoDatos\obj\Debug\SG.Infraestructura.AccesoDatos.dll
+C:\Users\jimen\Desktop\SEXTO SEMESTRE\Desarrollo de Software I\PROYECTOS\SGICC\SG.Infraestructura.AccesoDatos\obj\Debug\SG.Infraestructura.AccesoDatos.pdb

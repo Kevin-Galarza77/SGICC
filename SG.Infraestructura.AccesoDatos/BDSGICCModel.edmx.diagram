@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4823267560d04173bfe44f87ccb93992" Name="Diagram1">
+        <EntityTypeShape EntityType="depositoModel.categories" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="depositoModel.credit" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="depositoModel.credits_details" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="depositoModel.customer" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="depositoModel.products" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="depositoModel.roles" Width="1.5" PointX="1.5" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="depositoModel.stock_adjusts" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="depositoModel.stock_moves" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="depositoModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="depositoModel.transfer_types" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="depositoModel.transfers" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="depositoModel.users" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <AssociationConnector Association="depositoModel.FK_PRODUCTS_FK_PRODU_CATEGORI" ManuallyRouted="false" />
+        <AssociationConnector Association="depositoModel.FK_CREDIT_FK_CREDIT_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="depositoModel.FK_CREDIT_FK_USERS_USERS" ManuallyRouted="false" />
+        <AssociationConnector Association="depositoModel.FK_CREDITS_FK_CREDIT_CREDIT" ManuallyRouted="false" />
+        <AssociationConnector Association="depositoModel.FK_CREDITS_FK_CREDIT_PRODUCTS" ManuallyRouted="false" />
+        <AssociationConnector Association="depositoModel.FK_STOCK_AD_FK_STOCK_PRODUCTS" ManuallyRouted="false" />
+        <AssociationConnector Association="depositoModel.FK_STOCK_MO_RELATIONS_PRODUCTS" ManuallyRouted="false" />
+        <AssociationConnector Association="depositoModel.FK_USERS_FK_USER_ROLES" ManuallyRouted="false" />
+        <AssociationConnector Association="depositoModel.FK_STOCK_MO_FK_STOCK_TRANSFER" ManuallyRouted="false" />
+        <AssociationConnector Association="depositoModel.FK_TRANSFER_FK_TRANS_TRANSFER" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

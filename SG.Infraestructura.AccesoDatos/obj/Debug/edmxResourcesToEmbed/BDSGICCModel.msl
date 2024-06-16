@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="depositoModelStoreContainer" CdmEntityContainer="depositoEntities">
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="depositoModel.categories">
+        <MappingFragment StoreEntitySet="categories">
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+          <ScalarProperty Name="category_state" ColumnName="category_state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="credit">
+      <EntityTypeMapping TypeName="depositoModel.credit">
+        <MappingFragment StoreEntitySet="credit">
+          <ScalarProperty Name="credit_id" ColumnName="credit_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="customer_notes" ColumnName="customer_notes" />
+          <ScalarProperty Name="credit_status" ColumnName="credit_status" />
+          <ScalarProperty Name="credit_state" ColumnName="credit_state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="credits_details">
+      <EntityTypeMapping TypeName="depositoModel.credits_details">
+        <MappingFragment StoreEntitySet="credits_details">
+          <ScalarProperty Name="credit_detail_id" ColumnName="credit_detail_id" />
+          <ScalarProperty Name="credit_id" ColumnName="credit_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="week_id" ColumnName="week_id" />
+          <ScalarProperty Name="credit_detail_description" ColumnName="credit_detail_description" />
+          <ScalarProperty Name="credit_detail_value" ColumnName="credit_detail_value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer">
+      <EntityTypeMapping TypeName="depositoModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="customer_first_name" ColumnName="customer_first_name" />
+          <ScalarProperty Name="customer_last_name" ColumnName="customer_last_name" />
+          <ScalarProperty Name="customer_state" ColumnName="customer_state" />
+          <ScalarProperty Name="customer_address" ColumnName="customer_address" />
+          <ScalarProperty Name="customer_ci" ColumnName="customer_ci" />
+          <ScalarProperty Name="customer_phone" ColumnName="customer_phone" />
+          <ScalarProperty Name="customer_email" ColumnName="customer_email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="depositoModel.products">
+        <MappingFragment StoreEntitySet="products">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="product_sale_price" ColumnName="product_sale_price" />
+          <ScalarProperty Name="product_purchase_price" ColumnName="product_purchase_price" />
+          <ScalarProperty Name="product_img" ColumnName="product_img" />
+          <ScalarProperty Name="product_stock_quantity" ColumnName="product_stock_quantity" />
+          <ScalarProperty Name="product_state" ColumnName="product_state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="depositoModel.roles">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="rol_id" ColumnName="rol_id" />
+          <ScalarProperty Name="rol_name" ColumnName="rol_name" />
+          <ScalarProperty Name="rol_state" ColumnName="rol_state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stock_adjusts">
+      <EntityTypeMapping TypeName="depositoModel.stock_adjusts">
+        <MappingFragment StoreEntitySet="stock_adjusts">
+          <ScalarProperty Name="stock_adjust_id" ColumnName="stock_adjust_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="stock_adjust_date" ColumnName="stock_adjust_date" />
+          <ScalarProperty Name="stock_adjust_quantity" ColumnName="stock_adjust_quantity" />
+          <ScalarProperty Name="stock_adjust_reason" ColumnName="stock_adjust_reason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stock_moves">
+      <EntityTypeMapping TypeName="depositoModel.stock_moves">
+        <MappingFragment StoreEntitySet="stock_moves">
+          <ScalarProperty Name="stock_move_id" ColumnName="stock_move_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="transfer_id" ColumnName="transfer_id" />
+          <ScalarProperty Name="stock_move_quantity" ColumnName="stock_move_quantity" />
+          <ScalarProperty Name="stock_move_price_unit" ColumnName="stock_move_price_unit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="depositoModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transfer_types">
+      <EntityTypeMapping TypeName="depositoModel.transfer_types">
+        <MappingFragment StoreEntitySet="transfer_types">
+          <ScalarProperty Name="transfer_type_id" ColumnName="transfer_type_id" />
+          <ScalarProperty Name="TRANSFER_TYPE_NAME" ColumnName="TRANSFER_TYPE_NAME" />
+          <ScalarProperty Name="TRANSFER_TYPE_DESCRIPTION" ColumnName="TRANSFER_TYPE_DESCRIPTION" />
+          <ScalarProperty Name="TRANSFER_TYPE_STATE" ColumnName="TRANSFER_TYPE_STATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transfers">
+      <EntityTypeMapping TypeName="depositoModel.transfers">
+        <MappingFragment StoreEntitySet="transfers">
+          <ScalarProperty Name="transfer_id" ColumnName="transfer_id" />
+          <ScalarProperty Name="transfer_type_id" ColumnName="transfer_type_id" />
+          <ScalarProperty Name="transfer_number" ColumnName="transfer_number" />
+          <ScalarProperty Name="transfer_date" ColumnName="transfer_date" />
+          <ScalarProperty Name="transfer_created" ColumnName="transfer_created" />
+          <ScalarProperty Name="transfer_invoice_number" ColumnName="transfer_invoice_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="depositoModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="rol_id" ColumnName="rol_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_email" ColumnName="user_email" />
+          <ScalarProperty Name="user_state" ColumnName="user_state" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

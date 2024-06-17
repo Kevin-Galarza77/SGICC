@@ -44,8 +44,10 @@
     <Compile Include="Abstracciones\IAjusteStockRepositorio.cs" />
     <Compile Include="Abstracciones\IBaseRepositorio.cs" />
     <Compile Include="Abstracciones\ICategoriaRepositorio.cs" />
+    <Compile Include="Abstracciones\IMovimientosRepositorio.cs" />
     <Compile Include="Abstracciones\IProductoRepositorio.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="Abstracciones\ITiposTransferenciasRepositorio.cs" />
+    <Compile Include="Abstracciones\ITransferenciaRepositorio.cs" />
     <Compile Include="Entidades\BDSGICCModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

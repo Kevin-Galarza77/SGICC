@@ -18,6 +18,7 @@ namespace SG.Dominio.Modelo.Entidades
         public transfer_types()
         {
             this.transfers = new HashSet<transfers>();
+            this.TRANSFER_TYPE_STATE = true;
         }
     
         public int transfer_type_id { get; set; }

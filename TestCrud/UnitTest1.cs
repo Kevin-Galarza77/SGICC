@@ -8,17 +8,17 @@ namespace TestCrud
     [TestClass]
     public class UnitTest1
     {
-        //readonly CategoriaServicio categoriaServicio = new CategoriaServicio();
+        readonly CategoriaServicio categoriaServicio = new CategoriaServicio();
         //readonly ProductoServicio productoServicio = new ProductoServicio();
-        readonly AjusteStockServicio ajusteStockServicio = new AjusteStockServicio();
+        //readonly AjusteStockServicio ajusteStockServicio = new AjusteStockServicio();
 
         [TestMethod]
         public void TestMethod1()
         {
-            //categories categoria = new categories();
-            //categoria.category_name = "PILSENER";
-            //categoria.category_state = true;
-            //categoriaServicio.InsertarCategoria(categoria);
+            categories categoria = new categories();
+            categoria.category_name = "PILSENER";
+            categoria.category_state = true;
+            categoriaServicio.InsertarCategoria(categoria);
 
             //products product = new products();
             //product.product_name = "PILSENER 600";
@@ -30,12 +30,12 @@ namespace TestCrud
             //product.category_id = 1;
             //productoServicio.InsertarProducto(product);
 
-            stock_adjusts ajusteStock = new stock_adjusts();
-            ajusteStock.product_id = 1;
-            ajusteStock.stock_adjust_date = DateTime.Now;
-            ajusteStock.stock_adjust_quantity = 50;
-            ajusteStock.stock_adjust_reason = "SE INGRESO MAL LA CANTIDAD DE COMPRA EL DIA JUEVES";
-            ajusteStockServicio.InsertarAjusteStock(ajusteStock);
+            //stock_adjusts ajusteStock = new stock_adjusts();
+            //ajusteStock.product_id = 1;
+            //ajusteStock.stock_adjust_date = DateTime.Now;
+            //ajusteStock.stock_adjust_quantity = 50;
+            //ajusteStock.stock_adjust_reason = "SE INGRESO MAL LA CANTIDAD DE COMPRA EL DIA JUEVES";
+            //ajusteStockServicio.InsertarAjusteStock(ajusteStock);
 
         }
     }

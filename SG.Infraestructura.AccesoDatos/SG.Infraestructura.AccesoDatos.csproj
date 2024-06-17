@@ -60,12 +60,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDSGICCModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\Implementaciones\AjusteStockRepositorioimpl.cs" />
     <Compile Include="Repositorio\Implementaciones\BaseRepositorioimpl.cs" />
     <Compile Include="Repositorio\Implementaciones\CategoriaRepositorioimpl.cs" />
+    <Compile Include="Repositorio\Implementaciones\MovimientosRepositorioImpl.cs" />
     <Compile Include="Repositorio\Implementaciones\ProductoRepositorioimpl.cs" />
+    <Compile Include="Repositorio\Implementaciones\TiposTransferenciasRepositorioImpl.cs" />
+    <Compile Include="Repositorio\Implementaciones\TransferenciaRepositorioImpl.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SG.Dominio.Modelo\SG.Dominio.Modelo.csproj">

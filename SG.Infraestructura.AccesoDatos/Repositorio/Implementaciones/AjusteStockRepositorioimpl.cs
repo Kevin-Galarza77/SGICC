@@ -10,6 +10,6 @@ namespace SG.Infraestructura.AccesoDatos.Repositorio.Implementaciones
 {
     public class AjusteStockRepositorioimpl : BaseRepositorioimpl<stock_adjusts>, IAjusteStockRepositorio
     {
-        //test
+        
     }
 }

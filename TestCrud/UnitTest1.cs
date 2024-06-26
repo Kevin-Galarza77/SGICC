@@ -144,5 +144,23 @@ namespace TestCrud
 
             return categorias.Last();
         }
+
+        //TABLA USUARIOS
+
+        //INSERT
+
+        public users InsertarUsuario()
+        {
+            UsuarioServicio usuarioServicio = new UsuarioServicio();
+            users users = new users();
+
+            users.rol_id = 1;
+            users.user_name = "Grupo 5";
+            users.user_email = "email@gmail.com";
+            users.user_state = true;
+            users.user_password = "123789654";
+
+            return users;
+        }
     }
 }

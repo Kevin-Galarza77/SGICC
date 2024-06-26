@@ -14,17 +14,11 @@ namespace SG.Dominio.Modelo.Entidades
     
     public partial class roles
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public roles()
-        {
-            this.users = new HashSet<users>();
-        }
     
         public int rol_id { get; set; }
         public string rol_name { get; set; }
         public bool rol_state { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+   
         public virtual ICollection<users> users { get; set; }
     }
 }

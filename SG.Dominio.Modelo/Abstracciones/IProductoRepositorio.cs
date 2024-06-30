@@ -9,5 +9,6 @@ namespace SG.Dominio.Modelo.Abstracciones
 {
     public interface IProductoRepositorio: IBaseRepositorio <products>
     {
+        IEnumerable<products> productosPorCategoria(int categoria_id);
     }
 }

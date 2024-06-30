@@ -63,5 +63,17 @@ namespace SG.App.Aplicacion.Servicios
                 throw new Exception("Error Servicio: No se pudo traer los registros,", ex);
             }
         }
+
+        public IEnumerable<categories> categoriasPorEstado(Boolean estado)
+        {
+            try
+            {
+                return categoriaRepositorio.categoriasPorEstado(estado);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error Servicio: No se pudo traer los registros,", ex);
+            }
+        }
     }
 }

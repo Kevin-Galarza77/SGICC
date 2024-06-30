@@ -9,5 +9,7 @@ namespace SG.Dominio.Modelo.Abstracciones
 {
     public interface IAjusteStockRepositorio: IBaseRepositorio<stock_adjusts>
     {
+        IEnumerable<stock_adjusts> ajustesPorProducto(int product_id);
+
     }
 }

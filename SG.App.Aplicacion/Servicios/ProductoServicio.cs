@@ -63,5 +63,18 @@ namespace SG.App.Aplicacion.Servicios
                 throw new Exception("Error Servicio: No se pudo traer los registros,", ex);
             }
         }
+
+        public IEnumerable<products> productosPorCategoria(int categoria_id)
+        {
+            try
+            {
+                return productoRepositorio.productosPorCategoria(categoria_id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error Servicio: No se pudo traer los registros,", ex);
+            }
+        }
+
     }
 }

@@ -10,51 +10,61 @@ namespace TestCrud
     [TestClass]
     public class UnitTest1
     {
-        //readonly CategoriaServicio categoriaServicio = new CategoriaServicio();
-        //readonly ProductoServicio productoServicio = new ProductoServicio();
-        readonly AjusteStockServicio ajusteStockServicio = new AjusteStockServicio();
+        readonly ProductoServicio productoServicio= new ProductoServicio();
+        readonly CategoriaServicio categoriaServicio= new CategoriaServicio();
+        readonly AjusteStockServicio ajusteStockServicio= new AjusteStockServicio();
 
         [TestMethod]
         public void TestMethod1()
         {
-            //categories categoria = new categories();
-            //categoria.category_name = "PILSENER";
-            //categoria.category_state = true;
-            //categoriaServicio.InsertarCategoria(categoria);
 
-            //products product = new products();
-            //product.product_name = "PILSENER 600";
-            //product.product_purchase_price = 10.50m;
-            //product.product_sale_price = 15.50m;
-            //product.product_img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWXiegcar_nm58gMO6SI66n6bGAeH_t_x1Rw&s";
-            //product.product_stock_quantity = 50;
-            //product.product_state = true;
-            //product.category_id = 1;
-            //productoServicio.InsertarProducto(product);
+            var productList = productoServicio.productosPorCategoria(1);
 
-            stock_adjusts ajusteStock = new stock_adjusts();
-            products product = InsertarProducto();
-            ajusteStock.product_id = product.product_id;
-            ajusteStock.stock_adjust_date = DateTime.Now;
-            ajusteStock.stock_adjust_quantity = 50;
-            ajusteStock.stock_adjust_reason = "SE INGRESO MAL LA CANTIDAD DE COMPRA EL DIA JUEVES";
-            ajusteStockServicio.InsertarAjusteStock(ajusteStock);
+
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("PRODUCTOS POR CATEGORIA");
+            Console.WriteLine("--------------------------------------------------");
+
+            foreach (var item in productList)
+            {
+                Console.WriteLine(item.product_id + " .- " + item.product_name);
+            }
+
+            var categoriaList = categoriaServicio.categoriasPorEstado(true); 
+
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("CATEGORIAS POR ESTADO");
+            Console.WriteLine("--------------------------------------------------");
+
+            foreach (var item in categoriaList)
+            {
+                Console.WriteLine(item.category_id + " .- " + item.category_name);
+            }
+
+            var ajusteList = ajusteStockServicio.ajustesPorProducto(1);
+
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("AJUSTE POR PRODUCTO");
+            Console.WriteLine("--------------------------------------------------");
+
+            foreach (var item in ajusteList)
+            {
+                Console.WriteLine(item.stock_adjust_id+ " .- " + item.stock_adjust_date);
+            }
+
 
         }
 
-        [TestMethod]
         public void TestTipoTransferencias()
         {
             transfer_types tipoTransferencia = InsertarTipoTransferencia();
         }
 
-        [TestMethod]
         public void TestTransferencias()
         {
             transfers transferencia = InsertarTransferencia();
         }
 
-        [TestMethod]
         public void TestMovimientos()
         {
             MovimientosServicio movimientoServicio = new MovimientosServicio();

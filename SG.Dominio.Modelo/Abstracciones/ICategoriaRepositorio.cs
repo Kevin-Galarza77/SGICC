@@ -9,5 +9,7 @@ namespace SG.Dominio.Modelo.Abstracciones
 {
     public interface ICategoriaRepositorio: IBaseRepositorio<categories>
     {
+        IEnumerable<categories> categoriasPorEstado(Boolean estado);
+
     }
 }

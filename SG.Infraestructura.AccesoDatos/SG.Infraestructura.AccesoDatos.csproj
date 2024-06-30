@@ -64,10 +64,15 @@
     <Compile Include="Repositorio\Implementaciones\AjusteStockRepositorioimpl.cs" />
     <Compile Include="Repositorio\Implementaciones\BaseRepositorioimpl.cs" />
     <Compile Include="Repositorio\Implementaciones\CategoriaRepositorioimpl.cs" />
+    <Compile Include="Repositorio\Implementaciones\CreditDetailRepositorioimpl.cs" />
+    <Compile Include="Repositorio\Implementaciones\CreditRepositorioImpl.cs" />
+    <Compile Include="Repositorio\Implementaciones\CustomerRepositorioImpl.cs" />
     <Compile Include="Repositorio\Implementaciones\MovimientosRepositorioImpl.cs" />
     <Compile Include="Repositorio\Implementaciones\ProductoRepositorioimpl.cs" />
+    <Compile Include="Repositorio\Implementaciones\RolRepositorioImpl.cs" />
     <Compile Include="Repositorio\Implementaciones\TiposTransferenciasRepositorioImpl.cs" />
     <Compile Include="Repositorio\Implementaciones\TransferenciaRepositorioImpl.cs" />
+    <Compile Include="Repositorio\Implementaciones\UsuarioRepositorioImpl.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SG.Dominio.Modelo\SG.Dominio.Modelo.csproj">

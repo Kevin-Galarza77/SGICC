@@ -44,10 +44,15 @@
     <Compile Include="Abstracciones\IAjusteStockRepositorio.cs" />
     <Compile Include="Abstracciones\IBaseRepositorio.cs" />
     <Compile Include="Abstracciones\ICategoriaRepositorio.cs" />
+    <Compile Include="Abstracciones\ICreditDetailRepositorio.cs" />
+    <Compile Include="Abstracciones\ICreditRepositorio.cs" />
+    <Compile Include="Abstracciones\ICustomerRepositorio.cs" />
     <Compile Include="Abstracciones\IMovimientosRepositorio.cs" />
     <Compile Include="Abstracciones\IProductoRepositorio.cs" />
+    <Compile Include="Abstracciones\IRolRepositorio.cs" />
     <Compile Include="Abstracciones\ITiposTransferenciasRepositorio.cs" />
     <Compile Include="Abstracciones\ITransferenciaRepositorio.cs" />
+    <Compile Include="Abstracciones\IUsuariosRepositorio.cs" />
     <Compile Include="Entidades\BDSGICCModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

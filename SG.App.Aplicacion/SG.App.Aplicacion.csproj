@@ -44,10 +44,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\AjusteStockServicio.cs" />
     <Compile Include="Servicios\CategoriaServicio.cs" />
+    <Compile Include="Servicios\CreditDetailServicio.cs" />
+    <Compile Include="Servicios\CreditServicio.cs" />
+    <Compile Include="Servicios\CustomerServicio.cs" />
     <Compile Include="Servicios\MovimientosServicio.cs" />
+    <Compile Include="Servicios\RolServicio.cs" />
     <Compile Include="Servicios\TransferenciaServicio.cs" />
     <Compile Include="Servicios\TipoTransferenciaServicio.cs" />
     <Compile Include="Servicios\ProductoServicio.cs" />
+    <Compile Include="Servicios\UsuarioServicio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SG.Dominio.Modelo\SG.Dominio.Modelo.csproj">

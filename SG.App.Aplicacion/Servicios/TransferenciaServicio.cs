@@ -75,5 +75,17 @@ namespace SG.App.Aplicacion.Servicios
                 throw new Exception("Error Servicio: No se pudo traer los registros,", ex);
             }
         }
+
+        public IEnumerable<transfers> transferenciasPorFecha(DateTime fechaInicio, DateTime fechaFin)
+        {
+            try
+            {
+                return _transferenciaRepositorio.transferenciasPorFecha(fechaInicio, fechaFin);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error Servicio: No se pudo traer los registros,", ex);
+            }
+        }
     }
 }

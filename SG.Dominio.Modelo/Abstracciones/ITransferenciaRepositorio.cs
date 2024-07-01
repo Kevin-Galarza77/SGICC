@@ -9,5 +9,6 @@ namespace SG.Dominio.Modelo.Abstracciones
 {
     public interface ITransferenciaRepositorio : IBaseRepositorio<transfers>
     {
+        IEnumerable<transfers> transferenciasPorFecha(DateTime fechaInicio, DateTime fechaFin);
     }
 }

@@ -9,5 +9,6 @@ namespace SG.Dominio.Modelo.Abstracciones
 {
     public interface ITiposTransferenciasRepositorio : IBaseRepositorio<transfer_types>
     {
+        IEnumerable<transfer_types> tiposTransferenciasPorEstado(Boolean estado);
     }
 }

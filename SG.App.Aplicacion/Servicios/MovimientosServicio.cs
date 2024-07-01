@@ -75,5 +75,17 @@ namespace SG.App.Aplicacion.Servicios
                 throw new Exception("Error Servicio: No se pudo traer los registros,", ex);
             }
         }
+
+        public IEnumerable<stock_moves> movimientosPorTransferencia(int idTransferencia)
+        {
+            try
+            {
+                return _movimientoRepositorio.movimientosPorTransferencia(idTransferencia);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error Servicio: No se pudo filtrar los registros de movimientos,", ex);
+            }
+        }
     }
 }

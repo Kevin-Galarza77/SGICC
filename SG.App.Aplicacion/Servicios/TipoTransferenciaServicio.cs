@@ -75,5 +75,17 @@ namespace SG.App.Aplicacion.Servicios
                 throw new Exception("Error Servicio: No se pudo traer los registros,", ex);
             }
         }
+
+        public IEnumerable<transfer_types> listarTipoTransferenciasPorEstado(bool estado)
+        {
+            try
+            {
+                return _tipoTransferenciaRepositorio.tiposTransferenciasPorEstado(estado);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error Servicio: No se pudo traer los registros,", ex);
+            }
+        }
     }
 }

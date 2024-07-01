@@ -13,6 +13,9 @@ namespace TestCrud
         readonly ProductoServicio productoServicio= new ProductoServicio();
         readonly CategoriaServicio categoriaServicio= new CategoriaServicio();
         readonly AjusteStockServicio ajusteStockServicio= new AjusteStockServicio();
+        readonly TipoTransferenciaServicio tipoTransferenciaServicio = new TipoTransferenciaServicio();
+        readonly MovimientosServicio movimientoServicio = new MovimientosServicio();
+        readonly TransferenciaServicio transferenciaServicio = new TransferenciaServicio();
 
         [TestMethod]
         public void TestMethod1()
@@ -55,20 +58,67 @@ namespace TestCrud
 
         }
 
+        [TestMethod]
         public void TestTipoTransferencias()
         {
             transfer_types tipoTransferencia = InsertarTipoTransferencia();
         }
 
+        [TestMethod]
+        public void TestTipoTransferenciasPorEstado()
+        {
+            // Crear un tipo de transferencia
+            transfer_types tipoTransferencia = InsertarTipoTransferencia();
+
+            // Listar los tipos de transferencias por estado
+            IEnumerable<transfer_types> tipoTransferencias = tipoTransferenciaServicio.listarTipoTransferenciasPorEstado(true);
+
+            var dictionario = new Dictionary<bool, string>();
+            dictionario.Add(true, "ACTIVO");
+            dictionario.Add(false, "INACTIVO");
+
+            // Mostrar los tipos de transferencias
+            Console.WriteLine("Tipos de Transferencias encontradas con estado: "+ dictionario[true]);
+            foreach (var item in tipoTransferencias)
+            {
+                Console.WriteLine(UtilityTest<transfer_types>.ToStringObject(item));
+                Console.WriteLine("--------------------------------------------------");
+            }
+
+            // Eliminar el tipo de transferencia
+            tipoTransferenciaServicio.EliminarTipoTransferencia(tipoTransferencia.transfer_type_id);
+        }
+
+        [TestMethod]
         public void TestTransferencias()
         {
             transfers transferencia = InsertarTransferencia();
         }
 
-        public void TestMovimientos()
+        [TestMethod]
+        public void TestTransferenciaPorFecha()
         {
-            MovimientosServicio movimientoServicio = new MovimientosServicio();
+            // Crear una transferencia
+            transfers transferencia = InsertarTransferencia();
 
+            // Listar las transferencias por fecha de hace un mes hasta hoy
+            IEnumerable<transfers> transferencias = transferenciaServicio.transferenciasPorFecha(DateTime.Now.AddMonths(-1), DateTime.Now);
+
+            // Mostrar las transferencias
+            Console.WriteLine("Transferencias encontradas en el rango de fechas");
+            foreach (var item in transferencias)
+            {
+                Console.WriteLine(UtilityTest<transfers>.ToStringObject(item));
+                Console.WriteLine("--------------------------------------------------");
+            }
+
+            // Eliminar la transferencia creada
+            new TransferenciaServicio().EliminarTransferencia(transferencia.transfer_id);
+        }
+
+        [TestMethod]
+        public void TestMovimientos()
+        { 
             transfers transferencia = InsertarTransferencia();
 
             products product = InsertarProducto();
@@ -79,6 +129,52 @@ namespace TestCrud
             movimiento.stock_move_quantity = 50;
             movimiento.stock_move_price_unit = 10.50m;
             movimientoServicio.InsertarMovimiento(movimiento);
+        }
+
+        [TestMethod]
+        public void TestMovimientoPorTransferencia()
+        {
+            // Crear una transferencia
+            transfers transferencia = InsertarTransferencia();
+
+            // Crear un producto
+            products product = InsertarProducto();
+
+            // Crear un movimiento
+            stock_moves movimiento = new stock_moves();
+            movimiento.product_id = product.product_id;
+            movimiento.transfer_id = transferencia.transfer_id;
+            movimiento.stock_move_quantity = 50;
+            movimiento.stock_move_price_unit = 10.50m;
+            movimientoServicio.InsertarMovimiento(movimiento);
+
+            // Crear otro movimiento
+
+            products producto2 = InsertarProducto("PILSENER 600", 100, 5.50m, 10.50m);
+            stock_moves movimiento2 = new stock_moves();
+            movimiento2.product_id = producto2.product_id;
+            movimiento2.transfer_id = transferencia.transfer_id;
+            movimiento2.stock_move_quantity = 100;
+            movimiento2.stock_move_price_unit = 5.50m;
+            movimientoServicio.InsertarMovimiento(movimiento2);
+
+            // Listar los movimientos por transferencia
+            IEnumerable<stock_moves> movimientos = movimientoServicio.movimientosPorTransferencia(transferencia.transfer_id);
+
+            // Mostrar los movimientos
+            Console.WriteLine("Movimientos encontrados por transferencia");
+            foreach (var item in movimientos)
+            {
+                Console.WriteLine(UtilityTest<stock_moves>.ToStringObject(item));
+                Console.WriteLine("--------------------------------------------------");
+            }
+
+            // Eliminar movimientos
+            movimientoServicio.EliminarMovimiento(movimiento.stock_move_id);
+            movimientoServicio.EliminarMovimiento(movimiento2.stock_move_id);
+
+            // Eliminar la transferencia
+            transferenciaServicio.EliminarTransferencia(transferencia.transfer_id);
         }
 
         // HELPPERS
@@ -99,7 +195,6 @@ namespace TestCrud
 
         public transfers InsertarTransferencia()
         {
-            TransferenciaServicio transferenciaServicio = new TransferenciaServicio();
             transfers transferencia = new transfers();
             transfer_types tipoTransferencia = InsertarTipoTransferencia();
             transferencia.transfer_type_id = tipoTransferencia.transfer_type_id;
@@ -114,7 +209,7 @@ namespace TestCrud
             return transferencias.Last();
         }
 
-        public products InsertarProducto()
+        public products InsertarProducto(String nombreProducto="PILSENER 600", int stockQuantity=50, decimal purchasePrice=10.50m, decimal salePrice=15.50m)
         {
             // Consultamos la útlima categoría
             CategoriaServicio categoriaServicio = new CategoriaServicio();
@@ -128,11 +223,11 @@ namespace TestCrud
 
             ProductoServicio productoServicio = new ProductoServicio();
             products product = new products();
-            product.product_name = "PILSENER 600";
-            product.product_purchase_price = 10.50m;
-            product.product_sale_price = 15.50m;
+            product.product_name = nombreProducto;
+            product.product_purchase_price = purchasePrice;
+            product.product_sale_price = salePrice;
             product.product_img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWXiegcar_nm58gMO6SI66n6bGAeH_t_x1Rw&s";
-            product.product_stock_quantity = 50;
+            product.product_stock_quantity = stockQuantity;
             product.product_state = true;
             product.category_id = 1;
             productoServicio.InsertarProducto(product);

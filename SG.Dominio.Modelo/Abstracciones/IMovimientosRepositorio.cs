@@ -9,5 +9,6 @@ namespace SG.Dominio.Modelo.Abstracciones
 {
     public interface IMovimientosRepositorio : IBaseRepositorio<stock_moves>
     {
+        IEnumerable<stock_moves> movimientosPorTransferencia(int idTransferencia);
     }
 }

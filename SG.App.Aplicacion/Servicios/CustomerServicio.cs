@@ -62,5 +62,17 @@ namespace SG.App.Aplicacion.Servicios
                 throw new Exception("Error Servicio: No se pudo traer los registros,", ex);
             }
         }
+
+        public customer buscarPorNombre(string primerNombre)
+        {
+            try
+            {
+                return customerRepositorio.buscarPorNombre(primerNombre);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error. No se pudo encontrar el Nombre", ex);
+            }
+        }
     }
 }

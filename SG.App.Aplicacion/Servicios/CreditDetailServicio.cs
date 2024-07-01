@@ -63,5 +63,17 @@ namespace SG.App.Aplicacion.Servicios
                 throw new Exception("Error Servicio: No se pudo traer los registros,", ex);
             }
         }
+
+        public credits_details buscarPorDescripcion(string descripcion)
+        {
+            try
+            {
+                return creditDetailRepositorio.buscarPorDescripcion(descripcion);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error. No se pudo encontrar la descripcion", ex);
+            }
+        }
     }
 }

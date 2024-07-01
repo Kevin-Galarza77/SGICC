@@ -9,5 +9,7 @@ namespace SG.Dominio.Modelo.Abstracciones
 {
     public interface ICustomerRepositorio : IBaseRepositorio<customer>
     {
+        customer buscarPorNombre(string primerNombre);
+
     }
 }

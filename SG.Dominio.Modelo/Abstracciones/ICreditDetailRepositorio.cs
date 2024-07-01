@@ -9,5 +9,7 @@ namespace SG.Dominio.Modelo.Abstracciones
 {
     public interface ICreditDetailRepositorio : IBaseRepositorio<credits_details>
     {
+        credits_details buscarPorDescripcion(string descripcion);
+
     }
 }
